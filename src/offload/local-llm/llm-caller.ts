@@ -65,7 +65,7 @@ export async function callLlm(
     apiKey: config.apiKey,
     compatibility: "compatible",
     ...(customFetch ? { fetch: customFetch } : {}),
-  });
+  } as Parameters<typeof createOpenAI>[0] & { compatibility: "compatible" });
 
   try {
     const result = await generateText({

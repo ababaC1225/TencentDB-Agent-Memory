@@ -29,7 +29,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "postinstall": "bash scripts/openclaw-after-tool-call-messages.patch.sh 2>/dev/null || true"
+    "postinstall": "node scripts/run-openclaw-patch.mjs"
   },
   "files": [
     "dist/",
@@ -43,6 +43,7 @@
     "scripts/README.memory-tencentdb-ctl.md",
     "src",
     "scripts/openclaw-after-tool-call-messages.patch.sh",
+    "scripts/run-openclaw-patch.mjs",
     "scripts/setup-offload.sh",
     "hermes-plugin/",
     "openclaw.plugin.json",
@@ -70,7 +71,7 @@
   "author": "TencentDB Agent Memory Team",
   "license": "MIT",
   "engines": {
-    "node": ">=22.16.0"
+    "node": ">=22.19.0"
   },
   "dependencies": {
     "@ai-sdk/openai": "^3.0.53",

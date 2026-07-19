@@ -205,7 +205,7 @@ export class StandaloneLLMRunner implements LLMRunner {
       apiKey: this.config.apiKey,
       compatibility: "compatible",
       ...(this.customFetch ? { fetch: this.customFetch } : {}),
-    });
+    } as Parameters<typeof createOpenAI>[0] & { compatibility: "compatible" });
 
     // For pure text tasks like L1 extraction, avoid exposing any tools.
     const tools = this.enableTools
